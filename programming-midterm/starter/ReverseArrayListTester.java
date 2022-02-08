@@ -81,6 +81,8 @@ public class ReverseArrayListTester {
     
     /**
      * Custom test
+     * This test will see if the list is completely reversed from index 0
+     * to index 7
     */
     @Test
     public void testReverseCustom(){
