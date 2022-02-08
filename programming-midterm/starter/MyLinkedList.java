@@ -3,7 +3,8 @@
  * Name: Christopher Rebollar-Ramirez
  * ID: A16982224
  * Email: crebollarramirez@ucsd.edu
- * File description: 
+ * File description: This file contains the class MyLinkedList that contains classes
+ * and methods used to form a linked list. This file is 207 lines long.
  */
 
 /**
