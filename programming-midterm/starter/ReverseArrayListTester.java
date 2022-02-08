@@ -101,9 +101,11 @@ public class ReverseArrayListTester {
             }
         }
         assertTrue("Array does not reverse at specificed index range", equal);
+
+        // MyLinkedList reverseRegion Tester
+
     }
     
-
     /**
      * Custom test
     */
@@ -111,17 +113,10 @@ public class ReverseArrayListTester {
     public void testReverseCustom(){
         //TODO: Add your test case
 
-        // MyArrayList Tester
+        // MyArrayList reverseRegion Tester
         Object[] myArray = {8,7,6,5,4,3,2,1};
         myAL.reverseRegion(0,7); 
-        
-        /*
-        for(Object x : myAL.data){
-            System.out.print(x);
-        }
-        */
-
-        
+             
         boolean equal = false;
         for(int i = 0; i < myAL.size; i++){
             if(myAL.data[i] != myArray[i]){
@@ -131,11 +126,9 @@ public class ReverseArrayListTester {
                 equal = true;
             }
         }
-
-
         assertTrue("MyArrayList does not reverse at specificed index range", equal);
         
-        
+        // MyLinkedList reverseRegion Tester
         myLL.reverseRegion(0,7);
         boolean equal2 = false;
         for(int i = 0; i < myAL.size; i++){
@@ -146,9 +139,6 @@ public class ReverseArrayListTester {
                 equal2 = true;
             }
         }
-
         assertTrue("LinkedList does not reverse at specificed index range", equal2);
-
-
     }
 }
