@@ -116,7 +116,6 @@ public class ReverseArrayListTester {
             System.out.print(x);
         }
         
-        
         boolean equal = false;
         for(int i = 0; i < myAL.size; i++){
             if(myAL.data[i] != myArray[i]){
@@ -126,8 +125,6 @@ public class ReverseArrayListTester {
                 equal = true;
             }
         }
-        
-
         assertTrue("Array does not reverse at specificed index range", equal);
     }
 }

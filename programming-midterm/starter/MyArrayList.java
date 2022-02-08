@@ -1,8 +1,8 @@
 /**
  * TODO: Add your file header
- * Name:
- * ID:
- * Email:
+ * Name: Christopher Rebollar-Ramirez
+ * ID: A16982224
+ * Email: crebollarramirez@ucsd.edu
  * File description: 
  */
 
