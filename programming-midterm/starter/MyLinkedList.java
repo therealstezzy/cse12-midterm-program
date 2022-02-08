@@ -1,13 +1,16 @@
- /**
+/**
  * TODO: Add your file header
- * Name:
- * ID:
- * Email:
+ * Name: Christopher Rebollar-Ramirez
+ * ID: A16982224
+ * Email: crebollarramirez@ucsd.edu
  * File description: 
  */
 
 /**
- * TODO: Add class header
+ * This class is used to create a linked list. Inside the class, there is another class called
+ *  Node since a linked list is constructed with nodes. The MyLinkedList class implements 
+ *  MyReverseList meaning that it should contain the methods size(), reverseRegion(), get().
+ *  This class contains methods that alter the linked list and nodes. 
  */
 public class MyLinkedList<E> implements MyReverseList<E>{
 
@@ -119,29 +122,37 @@ public class MyLinkedList<E> implements MyReverseList<E>{
     }
 
     /**
-     * TODO: Method header comment here
+     * This method will reverse the linked list from a certain index to a index.
+     * This method will not reverse the nodes themselves, just the data,
+     * which is the same thing as reversing the nodes.  
      */
     public void reverseRegion(int fromIndex, int toIndex){
-        
-        
-        Node current = head.getNext();
-
-        current = head;
-
-        int k = toIndex-fromIndex +1;   // The  size of smallArray that holds values from index specficed to index specified
-        Object[] smallArray = new Object[k];
-        for(int i = 0; i <= fromIndex; i++){
-            current = current.getNext();
+        // This checks if fromIndex or toIndex is out of range of the linked list
+        if(fromIndex < 0 || fromIndex > this.size-1 || toIndex < 0 || toIndex > size-1){
+            throw new IndexOutOfBoundsException();
         }
-        Node fromIndexNode = current; // Node that is at fromIndex
+        if(fromIndex < toIndex){
+            Node current = head;
 
-        for(int p = smallArray.length - 1; p != - 1; p--){
-            smallArray[p] = current.data;
-            current = current.getNext();
-        }    
-        for(int i = 0; i < smallArray.length; i++){
-            fromIndexNode.data = (E)smallArray[i];
-            fromIndexNode = fromIndexNode.getNext();
+            int k = toIndex-fromIndex +1;   // The  size of smallArray that holds values from index specficed to index specified
+            Object[] smallArray = new Object[k];
+    
+            for(int i = 0; i <= fromIndex; i++){
+                current = current.getNext();
+            }
+            Node fromIndexNode = current; // Node that is at fromIndex
+    
+            // This will copy data from each node and insert it in the smallArray but from right to left
+            // allowing the smallArray to be in reverse order already.
+            for(int p = smallArray.length - 1; p != - 1; p--){
+                smallArray[p] = current.data;
+                current = current.getNext();
+            }    
+            // This loop will change the data of the nodes but in reverse order
+            for(int i = 0; i < smallArray.length; i++){
+                fromIndexNode.data = (E)smallArray[i];
+                fromIndexNode = fromIndexNode.getNext();
+            }
         }
     }
 
@@ -192,5 +203,4 @@ public class MyLinkedList<E> implements MyReverseList<E>{
         //return the node	
         return currNode; 
     }
-
 }

@@ -1,14 +1,9 @@
 /**
  * Tests to check the implementation of reverseRegion method in MyArrayList.java
 */
-
 //other import statements
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-
 import org.junit.*;
 
 //IMPORTANT: DO NOT MODIFY THE TEST HEADERS!
@@ -16,29 +11,22 @@ import org.junit.*;
  * This class contains various test cases to test the reverseRegion method
  */
 public class ReverseArrayListTester {
-
     private MyArrayList myAL;
-    private MyLinkedList myLL;
 
     /**
      * Run before every test
      */
     @Before
     public void setUp(){
-        Object[] myArray = {1,2,3,4,5,6,7,8};
+        Object[] myArray = {10,2,3,4,20,6,7,8};
         myAL = new MyArrayList<>(myArray);
-
-        myLL = new MyLinkedList<>(myArray);
     }
-
-
     /**
      * Tests reverseRegion method when either fromIndex or toIndex
      * or both are out of bounds.
      */
     @Test
     public void testReverseIndexOutOfBounds(){
-        //TODO: Add your test case
         boolean exceptionThrown = false;
         try{
             myAL.reverseRegion(-1, 2);
@@ -54,12 +42,9 @@ public class ReverseArrayListTester {
      */
     @Test
     public void testReverseFromIndexGreater(){
-        //TODO: Add your test case
-
-        // MyArrayList Tester
         myAL.reverseRegion(7, 2);
 
-        Object[] myArray = {1,2,3,4,5,6,7,8};
+        Object[] myArray = {10,2,3,4,20,6,7,8};
 
         boolean equal = false;
         for(int i = 0; i < myAL.size; i++){
@@ -79,17 +64,8 @@ public class ReverseArrayListTester {
     */
     @Test
     public void testReverseIndexWithinBounds(){
-
-        //TODO: Add your test case
-
-        // MyArrayList tester
-        Object[] myArray = {1,2,3,4,6,5,7,8};
-    
-        myAL.reverseRegion(4,5);   // We are reversing from index 4 to index 5
-
-        for(Object x : myAL.data){
-            System.out.print(x);
-        }
+        Object[] myArray = {10,2,6,20,4,3,7,8};
+        myAL.reverseRegion(2,5);   // We are reversing from index 4 to index 5
 
         boolean equal = false;
         for(int i = 0; i < myAL.size; i++){
@@ -101,9 +77,6 @@ public class ReverseArrayListTester {
             }
         }
         assertTrue("Array does not reverse at specificed index range", equal);
-
-        // MyLinkedList reverseRegion Tester
-
     }
     
     /**
@@ -111,10 +84,7 @@ public class ReverseArrayListTester {
     */
     @Test
     public void testReverseCustom(){
-        //TODO: Add your test case
-
-        // MyArrayList reverseRegion Tester
-        Object[] myArray = {8,7,6,5,4,3,2,1};
+        Object[] myArray = {8,7,6,20,4,3,2,10};
         myAL.reverseRegion(0,7); 
              
         boolean equal = false;
@@ -126,19 +96,6 @@ public class ReverseArrayListTester {
                 equal = true;
             }
         }
-        assertTrue("MyArrayList does not reverse at specificed index range", equal);
-        
-        // MyLinkedList reverseRegion Tester
-        myLL.reverseRegion(0,7);
-        boolean equal2 = false;
-        for(int i = 0; i < myAL.size; i++){
-            if(myAL.data[i] != myArray[i]){
-                equal2 = false;
-                break;
-            }else{
-                equal2 = true;
-            }
-        }
-        assertTrue("LinkedList does not reverse at specificed index range", equal2);
+        assertTrue("My array list does not reverse at specificed index range", equal);
     }
 }
