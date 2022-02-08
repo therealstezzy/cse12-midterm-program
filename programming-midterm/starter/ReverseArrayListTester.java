@@ -18,6 +18,7 @@ import org.junit.*;
 public class ReverseArrayListTester {
 
     private MyArrayList myAL;
+    private MyLinkedList myLL;
 
     /**
      * Run before every test
@@ -26,6 +27,8 @@ public class ReverseArrayListTester {
     public void setUp(){
         Object[] myArray = {1,2,3,4,5,6,7,8};
         myAL = new MyArrayList<>(myArray);
+
+        myLL = new MyLinkedList<>(myArray);
     }
 
 
@@ -112,9 +115,12 @@ public class ReverseArrayListTester {
         Object[] myArray = {8,7,6,5,4,3,2,1};
         myAL.reverseRegion(0,7); 
         
-            for(Object x : myAL.data){
+        /*
+        for(Object x : myAL.data){
             System.out.print(x);
         }
+        */
+
         
         boolean equal = false;
         for(int i = 0; i < myAL.size; i++){
@@ -125,6 +131,24 @@ public class ReverseArrayListTester {
                 equal = true;
             }
         }
-        assertTrue("Array does not reverse at specificed index range", equal);
+
+
+        assertTrue("MyArrayList does not reverse at specificed index range", equal);
+        
+        
+        myLL.reverseRegion(0,7);
+        boolean equal2 = false;
+        for(int i = 0; i < myAL.size; i++){
+            if(myAL.data[i] != myArray[i]){
+                equal2 = false;
+                break;
+            }else{
+                equal2 = true;
+            }
+        }
+
+        assertTrue("LinkedList does not reverse at specificed index range", equal2);
+
+
     }
 }

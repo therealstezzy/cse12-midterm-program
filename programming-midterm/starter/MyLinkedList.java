@@ -1,4 +1,4 @@
-/**
+ /**
  * TODO: Add your file header
  * Name:
  * ID:
@@ -125,20 +125,23 @@ public class MyLinkedList<E> implements MyReverseList<E>{
     public void reverseRegion(int fromIndex, int toIndex){
         Node current = head.getNext();
 
-        for(int i = fromIndex; i < fromIndex; i++){
-            current = head.getNext();
+        current = head;
+
+        int k = toIndex-fromIndex +1;   // The  size of smallArray that holds values from index specficed to index specified
+        Object[] smallArray = new Object[k];
+        for(int i = 0; i <= fromIndex; i++){
+            current = current.getNext();
         }
+        Node fromIndexNode = current; // Node that is at fromIndex
 
-        int k = toIndex-fromIndex;
-        while(k != 1){
-            current.prev = current.next;
-            current.prev.next = current;
-            current.next.prev = current;
+        for(int p = smallArray.length - 1; p != - 1; p--){
+            smallArray[p] = current.data;
+            current = current.getNext();
+        }    
+        for(int i = 0; i < smallArray.length; i++){
+            fromIndexNode.data = (E)smallArray[i];
+            fromIndexNode = fromIndexNode.getNext();
         }
-
-
-
-
     }
 
     @Override
